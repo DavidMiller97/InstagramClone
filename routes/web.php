@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/config', [UserController::class, 'config'])->name('config');
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+Route::get('/pass', [UserController::class, 'change_pass'])->name('change_pass');
+Route::post('/user/changepass', [UserController::class, 'update_pass'])->name('user.changepass');
+Route::get('/user/avatar/{filename}', [UserController::class, 'getImagen'])->name('user.avatar.imagen');
