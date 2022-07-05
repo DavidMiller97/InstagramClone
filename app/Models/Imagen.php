@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Imagen extends Model
 {
@@ -14,17 +15,17 @@ class Imagen extends Model
     //Relacion de uno a muchos
     public function comentarios(){
 
-        return $this->hasMany('App\Comentario');
+        return $this->hasMany(Comentario::class);
     }
 
     public function likes(){
 
-        return $this->hasMany('App\Like');
+        return $this->hasMany(Like::class);
     }
 
     //Relacion de muchos a uno
     public function user(){
 
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo(User::class);
     }
 }

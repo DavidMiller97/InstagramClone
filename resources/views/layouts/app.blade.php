@@ -18,6 +18,106 @@
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        .container-avatar{
+
+            width: 35px;
+            height: 35px;
+            border-radius: 900px;
+            overflow: hidden;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .container-avatar img{
+
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .pub_image .container-avatar{
+
+            width: 35px;
+            height: 35px;
+            border-radius: 900px;
+            overflow: hidden;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .card{
+
+            max-width: 800px !important;
+            max-height: 800px !important;
+        }
+
+        .pub_image{
+
+            margin-bottom: 35px;
+            max-width: 800px;
+            max-height: 800px;
+        }
+
+        .pub_image .container-avatar img {
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .pub_image .data-user{
+            font-weight: bold;
+        }
+
+        .pub_image .data-user a{
+            
+            text-decoration: none;
+            color: black;
+
+        }
+
+        .pub_image .data-user span{
+
+            color: gray;
+        }
+        .image-container{
+
+            width: 100%;
+            max-width: 800px;
+            max-height: 800px;
+            overflow: hidden;
+        }
+        .image-container img{
+
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .pub_image .card-body{
+
+            padding: 0px;
+        }
+        .pub_image .description{
+
+            padding: 20px;
+            padding-bottom: 5px;
+        }
+        .pub_image .description span{
+
+            color: gray;
+        }
+        .btn-comments{
+
+            margin: 20px;
+            margin-top:0px;
+        }
+        .likes{
+
+            width: 20px;
+            height: 20px;
+            margin: 10px;
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -53,15 +153,17 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="">Inicio</a>
+                                <a class="nav-link" href="{{ route('home') }}">Inicio</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="">Subir Imagen</a>
+                                <a class="nav-link" href="{{ route('image.create') }}">Subir Imagen</a>
                             </li>
                             <li>
-                                <div style="width: 150px; height: 150px;">
-                                    @include('includes.avatar')
-                                </div>
+                                @if (Auth::user()->image)
+                                    <div class="container-avatar">
+                                        @include('includes.avatar')
+                                    </div>
+                                @endif
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

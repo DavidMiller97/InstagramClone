@@ -22,28 +22,28 @@ CREATE TABLE IF NOT EXISTS usuarios(
 CREATE TABLE IF NOT EXISTS imagenes(
 
     imagen_id INT AUTO_INCREMENT NOT NULL,
-    usuario_id INT NOT NULL,
+    user_id BIGINT unsigned NOT NULL,
     ruta_imagen VARCHAR(255) NOT NULL,
     descripcion TEXT NOT NULL,
     created_at datetime,
     updated_at datetime,
 
     CONSTRAINT pk_imagenes PRIMARY KEY(imagen_id),
-    CONSTRAINT fk_usuario_imagen FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id)
+    CONSTRAINT fk_user_imagen FOREIGN KEY (user_id) REFERENCES users (id)
 
 )ENGINE=InnoDb;
 
 CREATE TABLE IF NOT EXISTS comentarios(
 
     comentario_id INT AUTO_INCREMENT NOT NULL,
-    usuario_id INT NOT NULL,
+    user_id BIGINT unsigned NOT NULL,
     imagen_id INT NOT NULL,
     contenido TEXT NOT NULL,
     created_at datetime,
     updated_at datetime,
 
     CONSTRAINT pk_comentarios PRIMARY KEY (comentario_id),
-    CONSTRAINT fk_usuario_comentario FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
+    CONSTRAINT fk_user_comentario FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT fk_imagen_comentario FOREIGN KEY (imagen_id) REFERENCES imagenes (imagen_id)
 
 )ENGINE=InnoDb;
@@ -51,13 +51,13 @@ CREATE TABLE IF NOT EXISTS comentarios(
 CREATE TABLE IF NOT EXISTS likes(
 
     like_id INT AUTO_INCREMENT NOT NULL,
-    usuario_id INT NOT NULL,
+    user_id BIGINT unsigned NOT NULL,
     imagen_id INT NOT NULL,
     created_at datetime,
     updated_at datetime,
 
     CONSTRAINT pk_likes PRIMARY KEY (like_id),
-    CONSTRAINT fk_usuario_like FOREIGN KEY (usuario_id) REFERENCES usuarios (usuario_id),
+    CONSTRAINT fk_user_like FOREIGN KEY (user_id) REFERENCES users (id),
     CONSTRAINT fk_imagen_like FOREIGN KEY (imagen_id) REFERENCES imagenes (imagen_id)
 
 )ENGINE=InnoDb;

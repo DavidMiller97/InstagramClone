@@ -86,8 +86,10 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3 d-flex justify-content-center">
-                                @include('includes.avatar')
+                            <div class="d-flex justify-content-center ">
+                                <div class="row mb-3 w-25">
+                                    @include('includes.avatar')
+                                </div>
                             </div>
     
                             <div class="row mb-0">
