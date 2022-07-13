@@ -12,15 +12,16 @@ class Imagen extends Model
 
     //Indicar el nombre de la tabla que modificara el modelo
     protected $table = 'imagenes';
+    protected $primaryKey = 'imagen_id';
     //Relacion de uno a muchos
     public function comentarios(){
 
-        return $this->hasMany(Comentario::class);
+        return $this->hasMany(Comentario::class, 'imagen_id', 'imagen_id')->orderBy('comentario_id', 'desc');
     }
 
     public function likes(){
 
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Like::class, 'imagen_id', 'imagen_id');
     }
 
     //Relacion de muchos a uno

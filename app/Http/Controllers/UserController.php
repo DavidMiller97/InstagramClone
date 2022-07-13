@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
@@ -107,5 +108,28 @@ class UserController extends Controller
 
         return new Response($file, 200);
 
+    }
+
+    public function profile($id){
+
+        $user = User::find($id);
+
+        return view('user.profile', ['user' => $user]);
+    }
+
+    public function index($nick = null){
+
+        if(!empty($nick)){
+
+            $users = User::where('nickname', 'LIKE', '%'.$nick.'%')->orWhere('name', 'LIKE', '%'.$nick.'%')->orWhere('surname', 'LIKE', '%'.$nick.'%')->orderBy('id', 'desc')->paginate(5);
+            
+        }else{
+
+            $users = User::orderBy('id', 'desc')->paginate(5);
+        }
+
+        
+
+        return view('user.index', ['users' => $users]);
     }
 }

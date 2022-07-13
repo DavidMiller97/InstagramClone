@@ -1,0 +1,154 @@
+.container-avatar{
+
+    width: 35px;
+    height: 35px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.container-avatar img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.pub_image .container-avatar{
+
+    width: 35px;
+    height: 35px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.pub_image{
+
+    margin-bottom: 35px;
+}
+
+.pub_image .container-avatar img {
+
+    width: 100%;
+    height: 100%;
+}
+
+.pub_image .data-user{
+    font-weight: bold;
+}
+
+.pub_image .data-user a{
+    
+    text-decoration: none;
+    color: black;
+
+}
+
+.pub_image .data-user span{
+
+    color: gray;
+}
+.image-container{
+
+    width: 100%;
+    overflow: hidden;
+}
+.image-container img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.pub_image .card-body{
+
+    padding: 0px;
+}
+.pub_image .description{
+
+    padding: 20px;
+    padding-bottom: 5px;
+}
+.pub_image .description span{
+
+    color: gray;
+}
+
+.btn-comments{
+
+    margin: 20px;
+    margin-top:0px;
+}
+.likes-contenedor{
+
+    display: flex;
+    align-items: baseline;
+}
+.likes-contenedor span{
+
+    color: gray;
+    font-size: 12px;
+}
+.likes{
+
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    margin-left: 20px;
+}
+.pub_image .comments{
+
+    padding: 20px;
+}
+
+.pub_image .comment{
+    
+    margin-top: 10px;
+}
+.pub_image .comments span{
+
+    color: gray;
+}
+.btn-like{
+
+    cursor: pointer;
+    fill: red;
+}
+.btn-dislike{
+
+    cursor: pointer;
+    fill: black;
+}
+.actions{
+
+    padding: 20px;
+}
+.data-user{
+
+    display: flex;
+}
+
+.data-user .user-image{
+
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 25px;
+}
+.data-user .user-image img{
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.likes-contenedor a{
+
+    text-decoration: none;
+}
+.user-name{
+
+    color: gray;
+    font-size: 18px;
+}

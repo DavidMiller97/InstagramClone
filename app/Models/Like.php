@@ -10,15 +10,16 @@ class Like extends Model
     use HasFactory;
 
     protected $table = 'likes';
+    protected $primaryKey = 'like_id';
 
     //Relacion muchos a uno 
-    public function usuario(){
+    public function user(){
 
-        return $this->belongsTo('App\User', 'id');
+        return $this->belongsTo(User::class);
     }
     //Relacion muchos a uno 
     public function imagen(){
 
-        return $this->belongsTo('App\Imagen', 'imagen_id');
+        return $this->belongsTo(Imagen::class, 'imagen_id', 'imagen_id');
     }
 }
